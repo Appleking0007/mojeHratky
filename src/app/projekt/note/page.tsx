@@ -25,6 +25,11 @@ const Page: FC = () => {
     const [isHovered1, setIsHovered1] = useState(false);
     const [isHovered2, setIsHovered2] = useState(false);
     const [isHovered3, setIsHovered3] = useState(false);
+
+    const [isHovered4, setIsHovered4] = useState(false);
+    const [isHovered5, setIsHovered5] = useState(false);
+    const [isHovered6, setIsHovered6] = useState(false);
+
     const [isDivVisible, setIsDivVisible] = useState(false);
 
     const [firstButtonIcon, setFirstButtonIcon] = useState(faAnglesRight);
@@ -40,12 +45,27 @@ const Page: FC = () => {
 
             <div className="flex flex-col pt-[10px] pb-[10px] border-r-[2px] border-[#F5F5F4] h-screen justify-between">
                 <div className="w-[82px] h-[224px] flex flex-col justify-evenly">
-                    <button className="h-[64px]"><FontAwesomeIcon className="h-[24px] w-[27px] text-[#37352F]"
-                                                                  icon={faHouse}/></button>
-                    <button className="h-[64px] bg-[#F1F1F0]"><FontAwesomeIcon
-                        className="text-[#000000] h-[24px] w-[21px]" icon={faBook}/></button>
-                    <button className="h-[64px]"><FontAwesomeIcon className="text-[#37352F] h-[24px] w-[22,63px]"
-                                                                  icon={faGear}/></button>
+                    <button
+                        className={`h-[64px] ${isHovered4 ? 'bg-gray-200' : ''}`}
+                        onMouseEnter={() => setIsHovered4(true)}
+                        onMouseLeave={() => setIsHovered4(false)}
+                    >
+                        <FontAwesomeIcon className="h-[24px] w-[27px] text-[#37352F]" icon={faHouse}/>
+                    </button>
+                    <button
+                        className={`h-[64px] ${isHovered5 ? 'bg-gray-200' : ''}`}
+                        onMouseEnter={() => setIsHovered5(true)}
+                        onMouseLeave={() => setIsHovered5(false)}
+                    >
+                        <FontAwesomeIcon className="text-[#000000] h-[24px] w-[21px]" icon={faBook}/>
+                    </button>
+                    <button
+                        className={`h-[64px] ${isHovered6 ? 'bg-gray-200' : ''}`}
+                        onMouseEnter={() => setIsHovered6(true)}
+                        onMouseLeave={() => setIsHovered6(false)}
+                    >
+                        <FontAwesomeIcon className="text-[#37352F] h-[24px] w-[22,63px]" icon={faGear}/>
+                    </button>
                 </div>
 
                 <div className="">
@@ -55,16 +75,16 @@ const Page: FC = () => {
             </div>
 
             {isDivVisible && (
-            <div
-                className="border-[#EDEDF0] border-r-[3px] w-[250px] pt-[24px] pb-[24px] flex flex-col space-y-[5px]">
-                <div>
-                    <div className={`flex flex-row justify-between items-center ${isHovered1 ? 'bg-gray-200' : ''}`}
-                         onMouseEnter={() => setIsHovered1(true)}
-                         onMouseLeave={() => setIsHovered1(false)}
-                    >
-                        <button className="pt-[24px] pb-[24px] ml-[10px]">
-                            <FontAwesomeIcon className="text-[#37352F] h-[16px] w-[12px]" icon={faFile}/>
-                        </button>
+                <div
+                    className="border-[#EDEDF0] border-r-[3px] w-[250px] pt-[24px] pb-[24px] flex flex-col space-y-[5px]">
+                    <div>
+                        <div className={`flex flex-row justify-between items-center ${isHovered1 ? 'bg-gray-200' : ''}`}
+                             onMouseEnter={() => setIsHovered1(true)}
+                             onMouseLeave={() => setIsHovered1(false)}
+                        >
+                            <button className="pt-[24px] pb-[24px] ml-[10px]">
+                                <FontAwesomeIcon className="text-[#37352F] h-[16px] w-[12px]" icon={faFile}/>
+                            </button>
 
                         <h1 className="content-center w-full ml-[10px]">I4 HS</h1>
 
