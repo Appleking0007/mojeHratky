@@ -1,37 +1,36 @@
-"use client"
-import {FC, useRef, useState} from "react";
-
+"use client";
+import { FC, useRef, useState } from "react";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-
-import {createRoot} from 'react-dom/client'
-import Markdown from 'react-markdown'
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse } from "@fortawesome/free-solid-svg-icons";
-import { faBook } from "@fortawesome/free-solid-svg-icons";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
-import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
-import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
-import { faPrint } from "@fortawesome/free-solid-svg-icons";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { faFile } from "@fortawesome/free-solid-svg-icons";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faBook, faGear, faAnglesLeft, faAnglesRight, faPrint, faLink, faFile, faX } from "@fortawesome/free-solid-svg-icons";
+import Markdown from 'react-markdown';
 
 const Page: FC = () => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const markdown = '**Pan**, ucitel *lol!*'
+    const mainNadpis = 'I4 HS';
+    const nadpisHlavni = 'Dynamický routing';
+    const odst1 = 'Dynamický routing nám zajišťuje routovací infrastrukturu, do které nemusíme zasahovat. Nemusíme psát routovací tabulku, nemusíme myslet na změny v síti. Musíme DRP jen nastavit.';
+    const odst2 = 'Kromě funkcí routingu nám DRP poskytují:';
+    const odst3 = '• Škálovatelnost';
+    const odst4 = '• Rychlou konvergenci';
+    const odst5 = '• Dostupnost';
+    const nadpisDruhy = 'Charekteristika DRP';
+    const odst6 = 'O každém dynamickém routovacím protokolu můžeme říct, že má minimálně:';
+    const odst7 = '• Algoritmus';
+    const odst8 = '• Metriku';
+    const odst9 = '• Zprávy daného protokolu';
 
     const [isHovered1, setIsHovered1] = useState(false);
     const [isHovered2, setIsHovered2] = useState(false);
     const [isHovered3, setIsHovered3] = useState(false);
-
     const [isHovered4, setIsHovered4] = useState(false);
     const [isHovered5, setIsHovered5] = useState(false);
     const [isHovered6, setIsHovered6] = useState(false);
-
     const [isDivVisible, setIsDivVisible] = useState(false);
-
+    const [div1Visible, setDiv1Visible] = useState(true);
+    const [div2Visible, setDiv2Visible] = useState(true);
+    const [div3Visible, setDiv3Visible] = useState(true);
     const [firstButtonIcon, setFirstButtonIcon] = useState(faAnglesRight);
 
     const toggleDivVisibility = () => {
@@ -39,10 +38,8 @@ const Page: FC = () => {
         setFirstButtonIcon(prevIcon => (prevIcon === faAnglesLeft ? faAnglesRight : faAnglesLeft));
     };
 
-
     return (
         <div className="flex flex-row h-screen">
-
             <div className="flex flex-col pt-[10px] pb-[10px] border-r-[2px] border-[#F5F5F4] h-screen justify-between">
                 <div className="w-[82px] h-[224px] flex flex-col justify-evenly">
                     <button
@@ -67,104 +64,142 @@ const Page: FC = () => {
                         <FontAwesomeIcon className="text-[#37352F] h-[24px] w-[22,63px]" icon={faGear}/>
                     </button>
                 </div>
-
-                <div className="">
+                <div>
                     <button className="h-[64px] w-[82px]" onClick={toggleDivVisibility}><FontAwesomeIcon
                         className="text-[#37352F] h-[24px] w-[25,99px]" icon={firstButtonIcon}/></button>
                 </div>
             </div>
-
             {isDivVisible && (
-                <div
-                    className="border-[#EDEDF0] border-r-[3px] w-[250px] pt-[24px] pb-[24px] flex flex-col space-y-[5px]">
+                <div className="border-[#EDEDF0] border-r-[3px] w-[250px] pt-[24px] pb-[24px] flex flex-col space-y-[5px]">
                     <div>
-                        <div className={`flex flex-row justify-between items-center ${isHovered1 ? 'bg-gray-200' : ''}`}
-                             onMouseEnter={() => setIsHovered1(true)}
-                             onMouseLeave={() => setIsHovered1(false)}
-                        >
-                            <button className="pt-[24px] pb-[24px] ml-[10px]">
-                                <FontAwesomeIcon className="text-[#37352F] h-[16px] w-[12px]" icon={faFile}/>
-                            </button>
-
-                        <h1 className="content-center w-full ml-[10px]">I4 HS</h1>
-
-                        <Popup
-                            trigger={
-                                <button className="pt-[24px] pb-[24px] mr-[10px] relative">
-                                    <FontAwesomeIcon
-                                        className={`text-[#37352F] ${isHovered1 ? 'visible' : 'invisible'}`}
-                                        icon={faX}/>
+                        {div1Visible && (
+                            <div className={`flex flex-row justify-between items-center ${isHovered1 ? 'bg-gray-200' : ''}`}
+                                 onMouseEnter={() => setIsHovered1(true)}
+                                 onMouseLeave={() => setIsHovered1(false)}
+                            >
+                                <button className="pt-[24px] pb-[24px] ml-[10px]">
+                                    <FontAwesomeIcon className="text-[#37352F] h-[16px] w-[12px]" icon={faFile}/>
                                 </button>
-                            }
-                            modal
-                            nested
-                        >
-                            {close => (
-                                <div
-                                    className="w-[503px] h-[188px] flex flex-col content-center justify-center pl-[20px] pr-[20px]">
-                                    <div
-                                        className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]">
-                                        Opravdu chcete smazat poznámku?
-                                    </div>
-                                    <div className="flex flex-row">
-                                        <div>
-                                            <button className="bg-green-500 w-[39px] h-[31px] rounded-lg"
-                                                    onClick={close}>
-                                                Ano
-                                            </button>
+                                <h1 className="content-center w-full ml-[10px]">I4 HS</h1>
+                                <Popup
+                                    trigger={
+                                        <button className={`pt-[24px] pb-[24px] mr-[10px] relative ${isHovered1 ? 'visible' : 'invisible'}`}>
+                                            <FontAwesomeIcon className="text-[#37352F]" icon={faX}/>
+                                        </button>
+                                    }
+                                    modal
+                                    nested
+                                >
+                                    {close => (
+                                        <div className="w-[503px] h-[188px] flex flex-col content-center justify-center pl-[20px] pr-[20px]">
+                                            <div className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]">
+                                                Opravdu chcete smazat poznámku?
+                                            </div>
+                                            <div className="flex flex-row">
+                                                <div>
+                                                    <button className="bg-green-500 w-[39px] h-[31px] rounded-lg" onClick={() => { setDiv1Visible(false); close(); }}>
+                                                        Ano
+                                                    </button>
+                                                </div>
+                                                <div>
+                                                    <button className="bg-red-600 w-[39px] h-[31px] rounded-lg" onClick={close}>
+                                                        Ne
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <button className="bg-red-600 w-[39px] h-[31px] rounded-lg" onClick={close}>
-                                                Ne
+                                    )}
+                                </Popup>
+                            </div>
+                        )}
+                        <div>
+                            {div2Visible && (
+                                <div className={`flex flex-row justify-between items-center ${isHovered2 ? 'bg-gray-200' : ''}`}
+                                     onMouseEnter={() => setIsHovered2(true)}
+                                     onMouseLeave={() => setIsHovered2(false)}
+                                >
+                                    <button className="pt-[24px] pb-[24px] ml-[10px]">
+                                        <FontAwesomeIcon className="text-[#37352F] h-[16px] w-[12px]" icon={faFile}/>
+                                    </button>
+                                    <h1 className="content-center w-full ml-[10px]">I3 HS</h1>
+                                    <Popup
+                                        trigger={
+                                            <button className={`pt-[24px] pb-[24px] mr-[10px] relative ${isHovered2 ? 'visible' : 'invisible'}`}>
+                                                <FontAwesomeIcon className="text-[#37352F]" icon={faX}/>
                                             </button>
-                                        </div>
-                                    </div>
+                                        }
+                                        modal
+                                        nested
+                                    >
+                                        {close => (
+                                            <div className="w-[503px] h-[188px] flex flex-col content-center justify-center pl-[20px] pr-[20px]">
+                                                <div className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]">
+                                                    Opravdu chcete smazat poznámku?
+                                                </div>
+                                                <div className="flex flex-row">
+                                                    <div>
+                                                        <button className="bg-green-500 w-[39px] h-[31px] rounded-lg" onClick={() => { setDiv2Visible(false); close(); }}>
+                                                            Ano
+                                                        </button>
+                                                    </div>
+                                                    <div>
+                                                        <button className="bg-red-600 w-[39px] h-[31px] rounded-lg" onClick={close}>
+                                                            Ne
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </Popup>
                                 </div>
                             )}
-                        </Popup>
-                    </div>
-
-                    <div>
-                        <div className={`flex flex-row justify-between items-center ${isHovered2 ? 'bg-gray-200' : ''}`}
-                             onMouseEnter={() => setIsHovered2(true)}
-                             onMouseLeave={() => setIsHovered2(false)}
-                        >
-                            <button className="pt-[24px] pb-[24px] ml-[10px]">
-                                <FontAwesomeIcon className="text-[#37352F] h-[16px] w-[12px]" icon={faFile}/>
-                            </button>
-
-                            <h1 className="content-center w-full ml-[10px]">I3 HS</h1>
-
-                            <button
-                                className={`pt-[24px] pb-[24px] mr-[10px] relative ${isHovered2 ? 'visible' : 'invisible'}`}>
-                                <FontAwesomeIcon className="text-[#37352F]" icon={faX}/>
-                            </button>
-                        </div>
-
-                        <div className={`flex flex-row justify-between items-center ${isHovered3 ? 'bg-gray-200' : ''}`}
-                             onMouseEnter={() => setIsHovered3(true)}
-                             onMouseLeave={() => setIsHovered3(false)}
-                        >
-                            <button className="pt-[24px] pb-[24px] ml-[10px]">
-                                <FontAwesomeIcon className="text-[#37352F]" icon={faFile}/>
-                            </button>
-
-                            <h1 className="content-center w-full ml-[10px]">I2 HS</h1>
-
-                            <button
-                                className={`pt-[24px] pb-[24px] mr-[10px] relative ${isHovered3 ? 'visible' : 'invisible'}`}>
-                                <FontAwesomeIcon className="text-[#37352F]" icon={faX}/>
-                            </button>
+                            {div3Visible && (
+                                <div className={`flex flex-row justify-between items-center ${isHovered3 ? 'bg-gray-200' : ''}`}
+                                     onMouseEnter={() => setIsHovered3(true)}
+                                     onMouseLeave={() => setIsHovered3(false)}
+                                >
+                                    <button className="pt-[24px] pb-[24px] ml-[10px]">
+                                        <FontAwesomeIcon className="text-[#37352F]" icon={faFile}/>
+                                    </button>
+                                    <h1 className="content-center w-full ml-[10px]">I2 HS</h1>
+                                    <Popup
+                                        trigger={
+                                            <button className={`pt-[24px] pb-[24px] mr-[10px] relative ${isHovered3 ? 'visible' : 'invisible'}`}>
+                                                <FontAwesomeIcon className="text-[#37352F]" icon={faX}/>
+                                            </button>
+                                        }
+                                        modal
+                                        nested
+                                    >
+                                        {close => (
+                                            <div className="w-[503px] h-[188px] flex flex-col content-center justify-center pl-[20px] pr-[20px]">
+                                                <div className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]">
+                                                    Opravdu chcete smazat poznámku?
+                                                </div>
+                                                <div className="flex flex-row">
+                                                    <div>
+                                                        <button className="bg-green-500 w-[39px] h-[31px] rounded-lg" onClick={() => { setDiv3Visible(false); close(); }}>
+                                                            Ano
+                                                        </button>
+                                                    </div>
+                                                    <div>
+                                                        <button className="bg-red-600 w-[39px] h-[31px] rounded-lg" onClick={close}>
+                                                            Ne
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </Popup>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
-            </div>
             )}
-
             <div className="flex flex-col w-screen pt-[6px] pb-[12px]">
-                <div
-                    className="border-b-[1px] flex flex-row border-[#F5F5F4] justify-between pt-[12px] pl-[36px] pr-[12px] pb-[36px] w-full h-[41px]">
-                    <h1 className="font-[600] text-[14px] leading-[16,94px] text-[#191711]">I4 HS</h1>
+                <div className="border-b-[1px] flex flex-row  justify-between pt-[12px] pl-[36px] pr-[12px] pb-[36px] w-full h-[41px]">
+                    <h1 className="font-[600] text-[14px] leading-[16,94px] text-[#191711]"><Markdown>{mainNadpis}</Markdown></h1>
                     <div className="justify-between space-x-[20px] mr-[20px]">
                         <button className=""><FontAwesomeIcon className="text-[#37352F] pr-2 w-[16px] h-[16px]"
                                                               icon={faPrint}/></button>
@@ -172,48 +207,24 @@ const Page: FC = () => {
                                                               icon={faLink}/></button>
                     </div>
                 </div>
-
-
                 <div className="flex flex-col w-[708px] h-[911px] ml-[250px] mt-[50px]">
-                    <h1 className="font-[700] w-[708px]  border-b-[1px] border-[#EDEDF0] pt-[12px] pb-[12px] text-[40px] leading-[48,41px] text-[#000000]">I4
-                        HS</h1>
-                    <h1 className="font-[600] w-[708px]  pt-[36px] pb-[8px] text-[30px] leading-[36,31px] text-[#37352F]">Dynamický
-                        routing</h1>
-                    <h1 className="font-[400] w-[708px]  pt-[4px] pb-[4px] text-[16px] leading-[24px] text-[#37352F]">Dynamický
-                        routing nám zajišťuje routovací infrastrukturu, do které nemusíme zasahovat. Nemusíme psát
-                        routovací tabulku, nemusíme myslet na změny v síti. Musíme DRP jen nastavit.</h1>
-
-                    <ul className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]"> Kromě
-                        funkcí routingu nám DRP poskytují:
-                        <li className="w-[708px] pt-[4px] pb-[4px] font-[400] leading-[24px] text-[16px] text-[#37352F]">•
-                            Škálovatelnost</li>
-                        <li className="w-[708px] pt-[4px] pb-[4px] font-[400] leading-[24px] text-[16px] text-[#37352F]">•
-                            Rychlou konvergenci
-                        </li>
-                        <li className="w-[708px] pt-[4px] pb-[4px] font-[400] leading-[24px] text-[16px] text-[#37352F]">•
-                            Dostupnost
-                        </li>
+                    <h1 className="font-bold w-[708px] border-b-[1px] border-[#EDEDF0] pt-[12px] pb-[12px] text-4xl leading-[48,41px] text-[#000000]">I4 HS</h1>
+                    <h1 className="font-semibold w-[708px] pt-[36px] pb-[8px] text-2xl leading-[36,31px] text-[#37352F]"><Markdown>{nadpisHlavni}</Markdown></h1>
+                    <h1 className="font-normal w-[708px] pt-[4px] pb-[4px] text-base leading-[24px] text-[#37352F]"><Markdown>{odst1}</Markdown></h1>
+                    <ul className="font-normal w-[708px] pt-[4px] pb-[4px] leading-[24px] text-base text-[#37352F]">
+                        <li className="w-[708px] pt-[4px] pb-[4px] leading-[24px] text-base text-[#37352F]"><Markdown>{odst2}</Markdown></li>
+                        <li className="w-[708px] pt-[4px] pb-[4px] leading-[24px] text-base text-[#37352F]"><Markdown>{odst3}</Markdown></li>
+                        <li className="w-[708px] pt-[4px] pb-[4px] leading-[24px] text-base text-[#37352F]"><Markdown>{odst4}</Markdown></li>
                     </ul>
-
-                    <h1 className="font-[600] w-[708px]  pt-[36px] pb-[8px] text-[30px] leading-[36,31px] text-[#37352F]">Charekteristika
-                        DRP</h1>
+                    <h1 className="font-semibold w-[708px] pt-[36px] pb-[8px] text-2xl leading-[36,31px] text-[#37352F]"><Markdown>{nadpisDruhy}</Markdown></h1>
                     <div>
-                        <h1 className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]"> O
-                            každém dynamickém routovacím protokolu můžeme říct, že má minimálně:</h1>
+                        <h1 className="font-normal w-[708px] pt-[4px] pb-[4px] leading-[24px] text-base text-[#37352F]"><Markdown>{odst6}</Markdown></h1>
                     </div>
-                    <p className="w-[708px] pt-[4px] pb-[4px] font-[400] leading-[24px] text-[16px] text-[#37352F]">•
-                        Algoritmus</p>
-                    <p className="w-[708px] pt-[4px] pb-[4px] font-[400] leading-[24px] text-[16px] text-[#37352F]">•
-                        Metriku</p>
-                    <p className="w-[708px] pt-[4px] pb-[4px] font-[400] leading-[24px] text-[16px] text-[#37352F]">•
-                        Zprávy daného protokolu</p>
-                    <Markdown>{markdown}</Markdown>
+                    <p className="w-[708px] pt-[4px] pb-[4px] leading-[24px] text-base text-[#37352F]"><Markdown>{odst7}</Markdown></p>
+                    <p className="w-[708px] pt-[4px] pb-[4px] leading-[24px] text-base text-[#37352F]"><Markdown>{odst8}</Markdown></p>
+                    <p className="w-[708px] pt-[4px] pb-[4px] leading-[24px] text-base text-[#37352F]"><Markdown>{odst9}</Markdown></p>
                 </div>
-
             </div>
-
-
-
         </div>
     );
 }
