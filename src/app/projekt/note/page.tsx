@@ -3,7 +3,7 @@ import { FC, useRef, useState } from "react";
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faBook, faGear, faAnglesLeft, faAnglesRight, faPrint, faLink, faFile, faX } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faBook, faGear, faAnglesLeft, faAnglesRight, faPrint, faLink, faFile, faX, faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 import Markdown from 'react-markdown';
 
 const Page: FC = () => {
@@ -54,7 +54,7 @@ const Page: FC = () => {
                         onMouseEnter={() => setIsHovered5(true)}
                         onMouseLeave={() => setIsHovered5(false)}
                     >
-                        <FontAwesomeIcon className="text-[#000000] h-[24px] w-[21px]" icon={faBook}/>
+                        <FontAwesomeIcon className="text-[#37352F] h-[24px] w-[21px]" icon={faBook}/>
                     </button>
                     <button
                         className={`h-[64px] ${isHovered6 ? 'bg-gray-200' : ''}`}
@@ -83,25 +83,25 @@ const Page: FC = () => {
                                 <h1 className="content-center w-full ml-[10px]">I4 HS</h1>
                                 <Popup
                                     trigger={
-                                        <button className={`pt-[24px] pb-[24px] mr-[10px] relative ${isHovered1 ? 'visible' : 'invisible'}`}>
-                                            <FontAwesomeIcon className="text-[#37352F]" icon={faX}/>
+                                        <button className="">
+                                            <FontAwesomeIcon className={`text-[#37352F] pr-2 w-[16px] h-[16px] ${isHovered1 ? 'visible' : 'invisible'}`} icon={faX}/>
                                         </button>
                                     }
                                     modal
                                     nested
                                 >
                                     {close => (
-                                        <div className="w-[503px] h-[188px] flex flex-col content-center justify-center pl-[20px] pr-[20px]">
-                                            <div className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]">
+                                        <div className="w-[503px] h-[288px] flex flex-col items-center justify-center mx-auto">
+                                            <div className="font-normal w-[360px] pt-[4px] text-xl pb-[4px] text-[16px] text-[#37352F]">
                                                 Opravdu chcete smazat poznámku?
                                             </div>
-                                            <div className="flex flex-row">
+                                            <div className="flex flex-row mt-4 justify-between">
                                                 <div>
                                                     <button className="bg-green-500 w-[39px] h-[31px] rounded-lg" onClick={() => { setDiv1Visible(false); close(); }}>
                                                         Ano
                                                     </button>
                                                 </div>
-                                                <div>
+                                                <div className="ml-6">
                                                     <button className="bg-red-600 w-[39px] h-[31px] rounded-lg" onClick={close}>
                                                         Ne
                                                     </button>
@@ -124,25 +124,25 @@ const Page: FC = () => {
                                     <h1 className="content-center w-full ml-[10px]">I3 HS</h1>
                                     <Popup
                                         trigger={
-                                            <button className={`pt-[24px] pb-[24px] mr-[10px] relative ${isHovered2 ? 'visible' : 'invisible'}`}>
-                                                <FontAwesomeIcon className="text-[#37352F]" icon={faX}/>
+                                            <button className="">
+                                                <FontAwesomeIcon className={`text-[#37352F] pr-2 w-[16px] h-[16px] ${isHovered2 ? 'visible' : 'invisible'}`} icon={faX}/>
                                             </button>
                                         }
                                         modal
                                         nested
                                     >
                                         {close => (
-                                            <div className="w-[503px] h-[188px] flex flex-col content-center justify-center pl-[20px] pr-[20px]">
-                                                <div className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]">
+                                            <div className="w-[503px] h-[288px] flex flex-col items-center justify-center mx-auto">
+                                                <div className="font-normal w-[360px] pt-[4px] text-xl pb-[4px] text-[16px] text-[#37352F]">
                                                     Opravdu chcete smazat poznámku?
                                                 </div>
-                                                <div className="flex flex-row">
+                                                <div className="flex flex-row mt-4 justify-between">
                                                     <div>
                                                         <button className="bg-green-500 w-[39px] h-[31px] rounded-lg" onClick={() => { setDiv2Visible(false); close(); }}>
                                                             Ano
                                                         </button>
                                                     </div>
-                                                    <div>
+                                                    <div className="ml-6">
                                                         <button className="bg-red-600 w-[39px] h-[31px] rounded-lg" onClick={close}>
                                                             Ne
                                                         </button>
@@ -164,25 +164,25 @@ const Page: FC = () => {
                                     <h1 className="content-center w-full ml-[10px]">I2 HS</h1>
                                     <Popup
                                         trigger={
-                                            <button className={`pt-[24px] pb-[24px] mr-[10px] relative ${isHovered3 ? 'visible' : 'invisible'}`}>
-                                                <FontAwesomeIcon className="text-[#37352F]" icon={faX}/>
+                                            <button className="">
+                                                <FontAwesomeIcon className={`text-[#37352F] pr-2 w-[16px] h-[16px] ${isHovered3 ? 'visible' : 'invisible'}`} icon={faX}/>
                                             </button>
                                         }
                                         modal
                                         nested
                                     >
                                         {close => (
-                                            <div className="w-[503px] h-[188px] flex flex-col content-center justify-center pl-[20px] pr-[20px]">
-                                                <div className="font-[400] w-[708px]  pt-[4px] pb-[4px] leading-[24px] text-[16px] text-[#37352F]">
+                                            <div className="w-[503px] h-[288px] flex flex-col items-center justify-center mx-auto">
+                                                <div className="font-normal w-[360px] pt-[4px] text-xl pb-[4px] text-[16px] text-[#37352F]">
                                                     Opravdu chcete smazat poznámku?
                                                 </div>
-                                                <div className="flex flex-row">
+                                                <div className="flex flex-row mt-4 justify-between">
                                                     <div>
                                                         <button className="bg-green-500 w-[39px] h-[31px] rounded-lg" onClick={() => { setDiv3Visible(false); close(); }}>
                                                             Ano
                                                         </button>
                                                     </div>
-                                                    <div>
+                                                    <div className="ml-6">
                                                         <button className="bg-red-600 w-[39px] h-[31px] rounded-lg" onClick={close}>
                                                             Ne
                                                         </button>
@@ -201,6 +201,42 @@ const Page: FC = () => {
                 <div className="border-b-[1px] flex flex-row  justify-between pt-[12px] pl-[36px] pr-[12px] pb-[36px] w-full h-[41px]">
                     <h1 className="font-[600] text-[14px] leading-[16,94px] text-[#191711]"><Markdown>{mainNadpis}</Markdown></h1>
                     <div className="justify-between space-x-[20px] mr-[20px]">
+
+                        <Popup
+                            trigger={
+                                <button className="">
+                                    <FontAwesomeIcon className="text-[#37352F] pr-2 w-[16px] h-[16px]" icon={faFloppyDisk}/>
+                                </button>
+                            }
+                            modal
+                            nested
+                        >
+                            {close => (
+                                <div className="w-[503px] h-[288px] flex flex-col items-center justify-center mx-auto">
+                                    <div className="font-normal w-[310px] pt-[4px] text-xl pb-[4px] text-[16px] text-[#37352F]">
+                                        Chcete přidat novou poznámku?
+                                    </div>
+                                    <div>
+                                        <input className="border border-gray-300 focus:border-gray-600 focus:outline-none px-4 py-2 rounded-md">
+                                        </input>
+                                    </div>
+                                    <div className="flex flex-row mt-4 justify-between">
+                                        <div>
+                                            <button className="bg-green-500 w-[39px] h-[31px] rounded-lg">
+                                                Ano
+                                            </button>
+                                        </div>
+                                        <div className="ml-6">
+                                            <button className="bg-red-600 w-[39px] h-[31px] rounded-lg" onClick={close}>
+                                                Ne
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </Popup>
+
+
                         <button className=""><FontAwesomeIcon className="text-[#37352F] pr-2 w-[16px] h-[16px]"
                                                               icon={faPrint}/></button>
                         <button className=""><FontAwesomeIcon className="text-[#37352F] w-[16px] h-[16px]"
